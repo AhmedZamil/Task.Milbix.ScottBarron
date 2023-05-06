@@ -1,11 +1,12 @@
-## Developer TASK for Milbix (ScottBarron) - Technical Challenge
+# Developer TASK for Milbix (ScottBarron) - Technical Challenge
 
- # Delevery /Task Complete : 
+ ## Delevery /Task Complete : 
 Setup shortcut It's Just to setup to all done Now.(.NET SDK 6.0.4 Needs to be present) 
  
-    ## 1. Download zip.
-    ## 2. Run the Setup.bat file  (Will set up everything to run locally )
-    ## 3. After Running just browse https://localhost:7163/ 
+    ##  1. Download zip.
+    ##  2. Set As Startup Project ( MVC App) you can run and browse https://localhost:7163/ 
+    ##  3. Set As Startup Project ( Console ) you can run
+    ### 4. Test Explorer : You can run unit test
     
     .NET SDK 6.0.4 : https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-6.0.4-windows-x64-installer
     
