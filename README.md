@@ -1,5 +1,3 @@
-# Task.Milbix.ScottBarron
-
 # Task Milbix for ScottBarron
 
 
