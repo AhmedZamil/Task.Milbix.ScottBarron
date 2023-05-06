@@ -1,7 +1,6 @@
 # TASK for Milbix (ScottBarron) - Technical Challenge
 
  ## Delevery /Task Complete : 
-(.NET SDK 6.0.4 Needs to be present) 
  
     ##  1. Download zip.
     ##  2. Set As Startup Project ( MVC App) you can run and browse https://localhost:7163/ 
