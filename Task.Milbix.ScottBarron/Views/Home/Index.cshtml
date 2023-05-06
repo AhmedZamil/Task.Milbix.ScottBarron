@@ -1,4 +1,56 @@
-﻿@{
+﻿@model AccountingCalendarViewModel
+
+<h1>Financial Year @Model.FinancialYears.FirstOrDefault()?.Number - @Model.FinancialYears.LastOrDefault()?.Number</h1>
+
+@foreach (var financialYear in Model.FinancialYears)
+{
+    <h2>Financial Year : @financialYear.StartDate.ToString("yyyy") - @financialYear.EndDate.ToString("yyyy") </h2>
+    <p>Days: @financialYear.DaysInYear</p>
+
+    <h3>Periods:</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Period Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var period in financialYear.PeriodList)
+            {
+                <tr>
+                    <td>@period.StartDate.ToString("yyyy-MM-dd")</td>
+                    <td>@period.EndDate.ToString("yyyy-MM-dd")</td>
+                    <td>@period.Number</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -7,7 +59,40 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
+@{
+    DateTime currentDate = DateTime.Now;
+    int financialYear = currentDate.Month >= 4 ? currentDate.Year : currentDate.Year - 1;
+    DateTime financialYearStart = new DateTime(financialYear, 4, 1);
+    DateTime financialYearEnd = new DateTime(financialYear + 1, 3, 31);
+    int numberOfPeriods = (financialYearEnd.Year - financialYearStart.Year) * 12 + financialYearEnd.Month - financialYearStart.Month + 1;
+}
 
+<h1>Financial Year @financialYear-@financialYearEnd.Year</h1>
+<p>Days: @financialYearStart.DayOfYear - @financialYearEnd.DayOfYear</p>
 
+<h2>Periods:</h2>
 
+<table class="table">
+    <thead>
+        <tr>
+            <th>Start</th>
+            <th>End</th>
+            <th>Period Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < numberOfPeriods; i++)
+        {
+            DateTime periodStartDate = financialYearStart.AddMonths(i);
+            DateTime periodEndDate = periodStartDate.AddMonths(1).AddDays(-1);
 
+            <tr>
+                <td>@periodStartDate.ToString("yyyy-MM-dd")</td>
+                <td>@periodEndDate.ToString("yyyy-MM-dd")</td>
+                <td>@(i + 1)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+*@

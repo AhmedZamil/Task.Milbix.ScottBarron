@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using Task.Milbix.ScottBarron.DAL;
 using Task.Milbix.ScottBarron.Models;
+using Task.Milbix.ScottBarron.ViewModel;
 
 namespace Task.Milbix.ScottBarron.Controllers
 {
@@ -32,6 +33,35 @@ namespace Task.Milbix.ScottBarron.Controllers
             IEnumerable<IPeriod> periods = generator.Generate(startDate, endDate);
             var groupedPeriods = periodGrouper.GroupPeriodsByFinancialYear(periods);
 
+            AccountingCalendarViewModel calender = new AccountingCalendarViewModel();
+            calender.StartDate = startDate;
+            calender.EndDate = endDate;
+            List<FinancialYearViewModel> years = new List<FinancialYearViewModel>();
+
+            foreach (var financialYear in groupedPeriods)
+            {
+                FinancialYearViewModel financialYearModel = new FinancialYearViewModel();
+                financialYearModel.StartDate = financialYear.Key.StartDate;
+                financialYearModel.EndDate = financialYear.Key.EndDate;
+                financialYearModel.DaysInYear = financialYear.Key.DaysInYear;
+
+                List<PeriodViewModel> periodsList = new List<PeriodViewModel>();
+                foreach (var period in financialYear.Value)
+                {
+                    PeriodViewModel periodViewModel = new PeriodViewModel();
+                    periodViewModel.StartDate = period.StartDate;
+                    periodViewModel.EndDate = period.EndDate;
+                    periodViewModel.Number = period.Number;
+                    periodsList.Add(periodViewModel);
+                   
+                }
+                financialYearModel.PeriodList = periodsList;
+                years.Add(financialYearModel);
+
+            }
+
+            calender.FinancialYears = years;
+
             foreach (var financialYear in groupedPeriods)
             {
                 Console.WriteLine($"Financial Year: {financialYear.Key.StartDate:yyyy}-{financialYear.Key.EndDate:yyyy}");
@@ -46,7 +76,7 @@ namespace Task.Milbix.ScottBarron.Controllers
                 Console.WriteLine();
             }
 
-            return View();
+            return View(calender);
         }
 
         public IActionResult Privacy()
