@@ -1,6 +1,24 @@
 ﻿@model AccountingCalendarViewModel
 
-<h1>Financial Year @Model.FinancialYears.FirstOrDefault()?.Number - @Model.FinancialYears.LastOrDefault()?.Number</h1>
+@{
+    var months = new List<SelectListItem>
+    {
+        new SelectListItem { Text = "January", Value = "1" },
+        new SelectListItem { Text = "February", Value = "2" },
+        new SelectListItem { Text = "March", Value = "3" },
+        new SelectListItem { Text = "April", Value = "4" },
+        new SelectListItem { Text = "May", Value = "5" },
+        new SelectListItem { Text = "June", Value = "6" },
+        new SelectListItem { Text = "July", Value = "7" },
+        new SelectListItem { Text = "August", Value = "8" },
+        new SelectListItem { Text = "September", Value = "9" },
+        new SelectListItem { Text = "October", Value = "10" },
+        new SelectListItem { Text = "November", Value = "11" },
+        new SelectListItem { Text = "December", Value = "12" }
+    };
+}
+
+<h1> Accounting Calendar : Financial Year : @Model.StartDate.ToString("yyyy-MM-dd") - @Model.EndDate.ToString("yyyy-MM-dd")</h1>
 
 @foreach (var financialYear in Model.FinancialYears)
 {
@@ -28,6 +46,60 @@
         </tbody>
     </table>
 }
+
+
+
+<hr />
+
+<h2>Enter Custom Dates:</h2>
+@*<form method="post" action="/YourController/ProcessCustomDates">
+
+    <div class="form-group">
+        <label for="startDate">Start Date:</label>
+        <input type="date" class="form-control" id="startDate" name="StartDate" required>
+    </div>
+    <div class="form-group">
+        <label for="endDate">End Date:</label>
+        <input type="date" class="form-control" id="endDate" name="EndDate" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>*@
+
+
+<form asp-action="Index" method="post" class="form-horizontal" role="form">
+    <h4>You're just one step away from your delicious pies.</h4>
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="StartDate">Start Date:</label>
+        <input type="date" asp-for="StartDate" class="form-control" required>
+        <span asp-validation-for="StartDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EndDate">End Date:</label>
+        <input type="date" asp-for="EndDate" class="form-control" required>
+        <span asp-validation-for="EndDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SelectedMonth)
+        @Html.DropDownListFor(model => model.SelectedMonth, months, "Select Starting Month Of Financial year", new { @class = "form-control" })
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-5">
+            <input type="submit" class="btn btn-primary" value="Complete order" />
+        </div>
+    </div>
+
+</form>
+
+
+
+
 
 
 

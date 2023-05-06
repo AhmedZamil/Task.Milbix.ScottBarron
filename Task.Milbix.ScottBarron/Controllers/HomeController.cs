@@ -30,7 +30,7 @@ namespace Task.Milbix.ScottBarron.Controllers
             Console.WriteLine($"Accounting Calendar from {startDate:yyyy-MM-dd} to {endDate:yyyy-MM-dd}");
             Console.WriteLine();
 
-            IEnumerable<IPeriod> periods = generator.Generate(startDate, endDate);
+            IEnumerable<IPeriod> periods = generator.Generate(startDate, endDate,7);
             var groupedPeriods = periodGrouper.GroupPeriodsByFinancialYear(periods);
 
             AccountingCalendarViewModel calender = new AccountingCalendarViewModel();
@@ -62,19 +62,64 @@ namespace Task.Milbix.ScottBarron.Controllers
 
             calender.FinancialYears = years;
 
+            //foreach (var financialYear in groupedPeriods)
+            //{
+            //    Console.WriteLine($"Financial Year: {financialYear.Key.StartDate:yyyy}-{financialYear.Key.EndDate:yyyy}");
+            //    Console.WriteLine($"Days: {financialYear.Key.DaysInYear}");
+            //    Console.WriteLine("Periods:");
+            //    Console.WriteLine();
+            //    Console.WriteLine("Start        End          Period Number");
+            //    foreach (var period in financialYear.Value)
+            //    {
+            //        Console.WriteLine($"{period.StartDate:yyyy-MM-dd}  {period.EndDate:yyyy-MM-dd}  {period.Number}");
+            //    }
+            //    Console.WriteLine();
+            //}
+
+            return View(calender);
+        }
+
+        [HttpPost]
+        public IActionResult Index(AccountingCalendarViewModel model)
+        {
+
+            DateTime startDate = model.StartDate;
+            DateTime endDate = model.EndDate;
+
+            Console.WriteLine($"Accounting Calendar from {startDate:yyyy-MM-dd} to {endDate:yyyy-MM-dd}");
+            Console.WriteLine();
+
+            IEnumerable<IPeriod> periods = generator.Generate(startDate, endDate, model.SelectedMonth);
+            var groupedPeriods = periodGrouper.GroupPeriodsByFinancialYear(periods);
+
+            AccountingCalendarViewModel calender = new AccountingCalendarViewModel();
+            calender.StartDate = startDate;
+            calender.EndDate = endDate;
+            List<FinancialYearViewModel> years = new List<FinancialYearViewModel>();
+
             foreach (var financialYear in groupedPeriods)
             {
-                Console.WriteLine($"Financial Year: {financialYear.Key.StartDate:yyyy}-{financialYear.Key.EndDate:yyyy}");
-                Console.WriteLine($"Days: {financialYear.Key.DaysInYear}");
-                Console.WriteLine("Periods:");
-                Console.WriteLine();
-                Console.WriteLine("Start        End          Period Number");
+                FinancialYearViewModel financialYearModel = new FinancialYearViewModel();
+                financialYearModel.StartDate = financialYear.Key.StartDate;
+                financialYearModel.EndDate = financialYear.Key.EndDate;
+                financialYearModel.DaysInYear = financialYear.Key.DaysInYear;
+
+                List<PeriodViewModel> periodsList = new List<PeriodViewModel>();
                 foreach (var period in financialYear.Value)
                 {
-                    Console.WriteLine($"{period.StartDate:yyyy-MM-dd}  {period.EndDate:yyyy-MM-dd}  {period.Number}");
+                    PeriodViewModel periodViewModel = new PeriodViewModel();
+                    periodViewModel.StartDate = period.StartDate;
+                    periodViewModel.EndDate = period.EndDate;
+                    periodViewModel.Number = period.Number;
+                    periodsList.Add(periodViewModel);
+
                 }
-                Console.WriteLine();
+                financialYearModel.PeriodList = periodsList;
+                years.Add(financialYearModel);
+
             }
+
+            calender.FinancialYears = years;
 
             return View(calender);
         }

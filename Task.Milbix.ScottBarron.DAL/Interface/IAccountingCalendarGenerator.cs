@@ -8,6 +8,6 @@ namespace Task.Milbix.ScottBarron.DAL
 {
     public interface IAccountingCalendarGenerator
     {
-        IEnumerable<IPeriod> Generate(DateTime startDate, DateTime endDate);
+        IEnumerable<IPeriod> Generate(DateTime startDate, DateTime endDate, int financialYearStartMonth=7);
     }
 }

@@ -8,11 +8,11 @@ namespace Task.Milbix.ScottBarron.DAL
 {
     public class AccountingCalendarGenerator : IAccountingCalendarGenerator
     {
-        public IEnumerable<IPeriod> Generate(DateTime startDate, DateTime endDate)
+        public IEnumerable<IPeriod> Generate(DateTime startDate, DateTime endDate, int financialYearStartMonth = 7)
         {
             var currentPeriodStart = new DateTime(startDate.Year, startDate.Month, 1);
-            var currentPeriodNumber = (startDate.Month + 5) % 12 + 1; // calculate period number (July = 1, June = 12)
-            var currentFinancialYear = startDate.Month <= 6 ? startDate.Year : startDate.Year + 1;
+            var currentPeriodNumber = (startDate.Month + (12 - financialYearStartMonth)) % 12 + 1; // calculate period number (July = 1, June = 12)
+            var currentFinancialYear = startDate.Month <= (12 - financialYearStartMonth)+1 ? startDate.Year : startDate.Year + 1;
             var daysInCurrentYear = DateTime.IsLeapYear(currentFinancialYear) ? 366 : 365; // calculate number of days in current financial year
 
             while (currentPeriodStart <= endDate)
