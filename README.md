@@ -1,4 +1,4 @@
-# Developer TASK for Milbix (ScottBarron) - Technical Challenge
+# TASK for Milbix (ScottBarron) - Technical Challenge
 
  ## Delevery /Task Complete : 
 Setup shortcut It's Just to setup to all done Now.(.NET SDK 6.0.4 Needs to be present) 
