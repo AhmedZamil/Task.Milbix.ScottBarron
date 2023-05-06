@@ -69,7 +69,7 @@ Bonus points for if you can allow the user to modify the start month of the fina
 ## Delevery / TASK Submission : Details
 
 #  Project Submission :
-  I have include several solution ( just to express myself & create a bit impression)
+  I have include several solution ( just to express myself & create a bit impression).Try to maintain the Time frame you mentioned ( slipped a bit) and maintain the points you mentioned.
   
      1. Console App : Straight Cut solution & calling to find out and achieve out put according to your Sample output ( using The Class library seperated)
      2. ASP.NET Core (6.0) MVC web app to ensure points you mentioned instructions.
