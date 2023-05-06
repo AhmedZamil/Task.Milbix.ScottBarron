@@ -6,6 +6,11 @@
     ##  2. Set As Startup Project ( MVC App) you can run and browse https://localhost:7163/ 
     ##  3. Set As Startup Project ( Console ) you can run
     ### 4. Test Explorer : You can run unit test
+
+Video to introduced the explanation :
+https://www.loom.com/share/7cbc7f6d3d4c4af88576cbcb8bb5682d
+https://www.loom.com/share/3ec047ae988444d7a5dffdd5dae2f2df
+https://www.loom.com/share/79531a13a1e7445782a1fc1a816f2246
   
 
  * Note : you will find the details below if you want to run development enviourment [Visual Studio 2022] 
@@ -112,6 +117,8 @@ As I understood. You set 5 hours of time.( I asked myself & gussed ) It must be 
    3. ASP.NET Core MVC project is not that much good looking.
    4. Could have more refactor of View Models or few Code ( but ignored to being focused on time).
    5. I had a plan to Deploy the MVC project in azure to better deliverables, a Video of explaining my code & Timing ( you might want to feel trusted, Sometimes it seems that I'm myself is working or not).
+https://www.loom.com/share/7cbc7f6d3d4c4af88576cbcb8bb5682d
+https://www.loom.com/share/3ec047ae988444d7a5dffdd5dae2f2df
    
 
 
