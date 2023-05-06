@@ -104,12 +104,13 @@ Bonus points for if you can allow the user to modify the start month of the fina
    
 # NOTE : 
 As I understood. You set 5 hours of time.( I asked myself & gussed ) It must be the Time Limit you want me to compe up with the solution ( may be to see efficency).So I tried not to utilize enough time to have a clear view about me.That includes several lack of in solution that I might want to work but resist myself.To be honest I took little bit more just to write the deliverables in understanding way.(My apology)
+
 Apolized for ignoring 
-   i.Unit Test project is not very much healthy ( it should be).
-   ii.In few place some over done or over calculating might be.Could have more "DRY" and Improvement.
-   iii.ASP.NET Core MVC project is not that much good looking.
-   iv. Could have more refactor of View Models or few Code ( but ignored to being focused on time).
-   v.I had a plan to Deploy the MVC project in azure to better deliverables, a Video of explaining my code & Timing ( you might want to feel trusted, Sometimes it seems that I'm myself is working or not).
+   1.Unit Test project is not very much healthy ( it should be).
+   2.In few place some over done or over calculating might be.Could have more "DRY" and Improvement.
+   3.ASP.NET Core MVC project is not that much good looking.
+   4. Could have more refactor of View Models or few Code ( but ignored to being focused on time).
+   5.I had a plan to Deploy the MVC project in azure to better deliverables, a Video of explaining my code & Timing ( you might want to feel trusted, Sometimes it seems that I'm myself is working or not).
    
 
 
