@@ -1,19 +1,16 @@
 # TASK for Milbix (ScottBarron) - Technical Challenge
 
  ## Delevery /Task Complete : 
-Setup shortcut It's Just to setup to all done Now.(.NET SDK 6.0.4 Needs to be present) 
+(.NET SDK 6.0.4 Needs to be present) 
  
     ##  1. Download zip.
     ##  2. Set As Startup Project ( MVC App) you can run and browse https://localhost:7163/ 
     ##  3. Set As Startup Project ( Console ) you can run
     ### 4. Test Explorer : You can run unit test
-    
-    .NET SDK 6.0.4 : https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-6.0.4-windows-x64-installer
-    
-[It will ensure navigate & install dependency  for dotnet restore Just allow the Setup.bat file sometime to do that , upto when it shows "Building..."]
+  
 
  * Note : you will find the details below if you want to run development enviourment [Visual Studio 2022] 
- * Note : you will find the Navigation to application to say how to browse application sections & what they do
+ * Note : you will find the Navigation to application and few other comments about how it do.
 
 ## Developer Task & Requerments :
 
