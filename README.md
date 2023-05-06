@@ -102,7 +102,8 @@ Bonus points for if you can allow the user to modify the start month of the fina
   i. I have tried my best to Comment ( with asserative language).
   ii. Also Trying to include some more in this file
    
-# NOTE : As I understood. You set 5 hours of time.( I asked myself & gussed ) It must be the Time Limit you want me to compe up with the solution ( may be to see efficency).So I tried not to utilize enough time to have a clear view about me.That includes several lack of in solution that I might want to work but resist myself.To be honest I took little bit more just to write the deliverables in understanding way.(My apology)
+# NOTE : 
+As I understood. You set 5 hours of time.( I asked myself & gussed ) It must be the Time Limit you want me to compe up with the solution ( may be to see efficency).So I tried not to utilize enough time to have a clear view about me.That includes several lack of in solution that I might want to work but resist myself.To be honest I took little bit more just to write the deliverables in understanding way.(My apology)
 Apolized for ignoring 
    i.Unit Test project is not very much healthy ( it should be).
    ii.In few place some over done or over calculating might be.Could have more "DRY" and Improvement.
