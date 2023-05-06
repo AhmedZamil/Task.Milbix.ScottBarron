@@ -117,6 +117,7 @@ Apolized for ignoring
  - ASP.NET Core ( 6.0)
  - C#
  - xunit 
+ - Visual studio 2022
 
 
 # Good to share 
@@ -125,14 +126,13 @@ Apolized for ignoring
   - Tried to maintain S O L I D and the points you mentioned
   - It could be more seperated and portable (Bussiness Layer) Uses Interface -Mixed N-tier
 
-# Prerequisites ( If some body want's to take the code in visual studio)
+# Prerequisites ( code in visual studio)
 
-## Only [.NET Core 6.0.4 SDK] (.NET SDK 6.0.4 : https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-6.0.4-windows-x64-installer) has to be present to Run
 ## Set As Startup Project ( MVC App) you can run and browse https://localhost:7163/ 
 ## Set As Startup Project ( Console ) you can run
 
 
-How It Works ( More Comments) Few Points ( might seems a bit overdone , my apology).
+# How It Works ( More Comments) Few Points ( might seems a bit overdone , my apology).
 
 - I have tried to implementation  an interface IAccountingCalendarGenerator with a single method Generate that takes a start date ,an end date, optional starting Month of the financial year ( if not given it will take July as) and returns the periods and financial years in the range. 
 
