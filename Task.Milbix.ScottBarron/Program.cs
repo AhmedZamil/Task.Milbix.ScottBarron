@@ -5,9 +5,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+// to demonastrate using standard DI container through constructor inj
 builder.Services.AddScoped<IAccountingCalendarGenerator, AccountingCalendarGenerator>();
-//builder.Services.AddTransient<IFinancialYear, FinancialYear>();
-//builder.Services.AddTransient<IPeriod, Period>();
 builder.Services.AddScoped<IPeriodGrouper, AccountingPeriodGrouper>();
 
 var app = builder.Build();

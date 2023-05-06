@@ -14,11 +14,13 @@ namespace Task.Milbix.ScottBarron.Controllers
 
         public HomeController(ILogger<HomeController> logger, IAccountingCalendarGenerator Generator, IPeriodGrouper PeriodGrouper)
         {
+            // to demonastrate constructor inj
             _logger = logger;
             generator = Generator;
             periodGrouper = PeriodGrouper;
         }
 
+        // To view 
         public IActionResult Index()
         {
             //IAccountingCalendarGenerator generator = new AccountingCalendarGenerator();
@@ -62,23 +64,10 @@ namespace Task.Milbix.ScottBarron.Controllers
 
             calender.FinancialYears = years;
 
-            //foreach (var financialYear in groupedPeriods)
-            //{
-            //    Console.WriteLine($"Financial Year: {financialYear.Key.StartDate:yyyy}-{financialYear.Key.EndDate:yyyy}");
-            //    Console.WriteLine($"Days: {financialYear.Key.DaysInYear}");
-            //    Console.WriteLine("Periods:");
-            //    Console.WriteLine();
-            //    Console.WriteLine("Start        End          Period Number");
-            //    foreach (var period in financialYear.Value)
-            //    {
-            //        Console.WriteLine($"{period.StartDate:yyyy-MM-dd}  {period.EndDate:yyyy-MM-dd}  {period.Number}");
-            //    }
-            //    Console.WriteLine();
-            //}
-
             return View(calender);
         }
 
+        //To post the input and View
         [HttpPost]
         public IActionResult Index(AccountingCalendarViewModel model)
         {

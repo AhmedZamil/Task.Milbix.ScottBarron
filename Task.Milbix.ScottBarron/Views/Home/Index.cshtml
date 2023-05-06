@@ -18,14 +18,48 @@
     };
 }
 
-<h1> Accounting Calendar : Financial Year : @Model.StartDate.ToString("yyyy-MM-dd") - @Model.EndDate.ToString("yyyy-MM-dd")</h1>
+
+<form asp-action="Index" method="post" class="form-horizontal" role="form">
+    <h4>You can select Starting Month to Re-generate Calender. Also can give Start  -  End Date </h4>
+
+@*    <div asp-validation-summary="All" class="text-danger"></div>*@
+
+    <div class="form-group">
+        <label asp-for="StartDate">Start Date:</label>
+        <input type="date" asp-for="StartDate" class="form-control" >
+        <span asp-validation-for="StartDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EndDate">End Date:</label>
+        <input type="date" asp-for="EndDate" class="form-control" >
+        <span asp-validation-for="EndDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SelectedMonth)
+        @Html.DropDownListFor(model => model.SelectedMonth, months, "Select Starting Month Of Financial year", new { @class = "form-control" })
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-5">
+            <input type="submit" class="btn btn-primary" value="Generate Calender" />
+        </div>
+    </div>
+
+</form>
+
+<hr />
+
+<h2> Accounting Calendar</h2>
 
 @foreach (var financialYear in Model.FinancialYears)
 {
-    <h2>Financial Year : @financialYear.StartDate.ToString("yyyy") - @financialYear.EndDate.ToString("yyyy") </h2>
-    <p>Days: @financialYear.DaysInYear</p>
+    <h4>Financial Year : @financialYear.StartDate.ToString("yyyy") - @financialYear.EndDate.ToString("yyyy") </h4>
+    <h4>Days: @financialYear.DaysInYear</h4>
 
-    <h3>Periods:</h3>
+    <h4>Periods:</h4>
     <table class="table">
         <thead>
             <tr>
@@ -51,51 +85,7 @@
 
 <hr />
 
-<h2>Enter Custom Dates:</h2>
-@*<form method="post" action="/YourController/ProcessCustomDates">
 
-    <div class="form-group">
-        <label for="startDate">Start Date:</label>
-        <input type="date" class="form-control" id="startDate" name="StartDate" required>
-    </div>
-    <div class="form-group">
-        <label for="endDate">End Date:</label>
-        <input type="date" class="form-control" id="endDate" name="EndDate" required>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>*@
-
-
-<form asp-action="Index" method="post" class="form-horizontal" role="form">
-    <h4>You're just one step away from your delicious pies.</h4>
-
-    <div asp-validation-summary="All" class="text-danger"></div>
-
-    <div class="form-group">
-        <label asp-for="StartDate">Start Date:</label>
-        <input type="date" asp-for="StartDate" class="form-control" required>
-        <span asp-validation-for="StartDate" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="EndDate">End Date:</label>
-        <input type="date" asp-for="EndDate" class="form-control" required>
-        <span asp-validation-for="EndDate" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.SelectedMonth)
-        @Html.DropDownListFor(model => model.SelectedMonth, months, "Select Starting Month Of Financial year", new { @class = "form-control" })
-    </div>
-
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-5">
-            <input type="submit" class="btn btn-primary" value="Complete order" />
-        </div>
-    </div>
-
-</form>
 
 
 
