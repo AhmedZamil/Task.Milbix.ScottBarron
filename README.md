@@ -134,7 +134,8 @@ As I understood. You set 5 hours of time.( I asked myself & gussed ) It must be 
 ## Set As Startup Project ( Console ) you can run
 
 
-# How It Works ( More Comments) Few Points ( might seems a bit overdone , my apology).
+## How It Works ( More Comments) Few Points 
+( might seems a bit overdone , my apology).
 
 - I have tried to implementation  an interface IAccountingCalendarGenerator with a single method Generate that takes a start date ,an end date, optional starting Month of the financial year ( if not given it will take July as) and returns the periods and financial years in the range. 
 
