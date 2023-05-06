@@ -128,11 +128,6 @@ As I understood. You set 5 hours of time.( I asked myself & gussed ) It must be 
   - Tried to maintain S O L I D and the points you mentioned
   - It could be more seperated and portable (Bussiness Layer) Uses Interface -Mixed N-tier
 
-# Prerequisites ( code in visual studio)
-
-## Set As Startup Project ( MVC App) you can run and browse https://localhost:7163/ 
-## Set As Startup Project ( Console ) you can run
-
 
 ## How It Works ( More Comments) Few Points 
 ( might seems a bit overdone , my apology).
